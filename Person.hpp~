@@ -1,0 +1,24 @@
+#pragma once
+
+#include "SceneNode.hpp"
+#include <glm/glm.hpp>
+using namespace glm;
+
+#include <irrKlang.h>
+using namespace irrklang;
+
+#include "Material.hpp"
+
+class Person {
+public:
+    Person(const float posx, const float posz, const Material &hair, const Material &shirt, 
+	const Material &pants, const Material &skin, ISound *sound = NULL);
+    virtual ~Person();  
+    ISound *audio;
+    bool react;
+    SceneNode *p;
+    vec3 pos;
+private:
+    SceneNode *create(const Material &hair, const Material &shirt,
+        const Material &pants, const Material &skin);
+};
